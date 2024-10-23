@@ -7,7 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" >
 </head>
-<body class="max-w-xl mx-auto bg-gray-300">
+<body class="container max-w-xl mx-auto py-2 bg-gray-300">
+    <button class="float-right hover:bg-blue-600 transition" id="toggleDarkMode">
+        <i class="material-symbols-outlined"style="font-size:25px;">sdk</i>
+    </button>
     <div class="px-2 py-2 bg-green-200">
         계획표
         <div class="grid grid-flow-col grid-cols-2 gap-4 bg-pink-100">
@@ -29,9 +32,31 @@
             <div class="col-start-2 col-end-3">업무</div>
             <div class="col-start-1 col-end-2">18:00 ~ 19:00</div>
             <div class="col-start-2 col-end-3">나머지 공부</div>
-            <div class="col-start-1 col-end-2">time area</div>
-            <div class="col-start-2 col-end-3">plan area</div>
+            <div class="col-start-1 col-end-2">19:00 ~ 20:00</div>
+            <div class="col-start-2 col-end-3">귀가, 체력비축</div>
+            <div class="col-start-1 col-end-2">20:00 ~ 21:00</div>
+            <div class="col-start-2 col-end-3">30분 운동 및 샤워, 귀가</div>
+            <div class="col-start-1 col-end-2">21:00 ~ 22:30</div>
+            <div class="col-start-2 col-end-3">여가 생활, 독서, 유튜브</div>
         </div>
     </div>
 </body>
+<script>
+    const toggleButton = document.getElementById('toggleDarkMode');
+    const body = document.body;
+    // 다크 모드 상태를 로컬 스토리지에 저장 및 로드
+    if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+    }
+    // 버튼 클릭 시 다크 모드 전환
+    toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    // 현재 테마를 로컬 스토리지에 저장
+    if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+    });
+</script>
 </html>
