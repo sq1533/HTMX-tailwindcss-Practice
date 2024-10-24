@@ -7,13 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" >
 </head>
-<body class="container max-w-xl mx-auto py-2 bg-gray-300">
-    <button class="float-right hover:bg-blue-600 transition" id="toggleDarkMode">
-        <i class="material-symbols-outlined"style="font-size:25px;">sdk</i>
-    </button>
+<body class="container max-w-xl mx-auto py-2 bg-white">
+    <div id="styleSwich" class="w-20 h-8 text-center rounded-full duration-500 bg-blue-500">
+        <i id="modeIcon" class="material-symbols-outlined" style="font-size:32px;">wb_sunny</i>
+    </div>
     <div class="px-2 py-2 bg-green-200">
         계획표
-        <div class="grid grid-flow-col grid-cols-2 gap-4 bg-pink-100">
+        <div id="planSpace" class="grid grid-flow-col grid-cols-2 gap-4 text-black bg-pink-100">
             <div class="col-start-1 col-end-2">22:30 ~ 04:30</div>
             <div class="col-start-2 col-end-3">숙면, 음소거, 따뜻한 환경, 촉감 이불</div>
             <div class="col-start-1 col-end-2">04:30 ~ 05:00</div>
@@ -40,23 +40,25 @@
             <div class="col-start-2 col-end-3">여가 생활, 독서, 유튜브</div>
         </div>
     </div>
+    <script>
+        const button = document.getElementById('styleSwich');
+        const div = document.getElementById('planSpace');
+        const Icon = document.getElementById('modeIcon');
+
+        button.addEventListener('click',()=>{
+            if(button.classList.contains('bg-blue-500')){
+                button.classList.remove('bg-blue-500','text-white');
+                button.classList.add('bg-green-500','text-black');
+                Icon.textContent = 'bedtime';
+                div.classList.remove('bg-pink-100','text-black');
+                div.classList.add('bg-gray-600','text-white');
+            }else{
+                button.classList.remove('bg-green-500','text-black');
+                button.classList.add('bg-blue-500','text-white');
+                Icon.textContent = 'wb_sunny';
+                div.classList.remove('bg-gray-600','text-white');
+                div.classList.add('bg-pink-100','text-black');
+            }});
+    </script>
 </body>
-<script>
-    const toggleButton = document.getElementById('toggleDarkMode');
-    const body = document.body;
-    // 다크 모드 상태를 로컬 스토리지에 저장 및 로드
-    if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    }
-    // 버튼 클릭 시 다크 모드 전환
-    toggleButton.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    // 현재 테마를 로컬 스토리지에 저장
-    if (body.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
-    });
-</script>
 </html>
