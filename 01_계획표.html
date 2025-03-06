@@ -2,63 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일일_계획표</title>
+    <title>입사 지원서</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" >
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
-<body class="container max-w-xl mx-auto py-2 bg-white">
-    <button id="styleSwich" class="w-20 h-8 text-center rounded-full duration-500 bg-blue-500">
-        <i id="modeIcon" class="material-symbols-outlined" style="font-size:32px;">wb_sunny</i>
-    </button>
-    <div class="px-2 py-2 bg-green-200">
-        계획표
-        <div id="planSpace" class="grid grid-flow-col grid-cols-2 gap-4 text-black bg-pink-100">
-            <div class="col-start-1 col-end-2">22:30 ~ 04:30</div>
-            <div class="col-start-2 col-end-3">숙면, 음소거, 따뜻한 환경, 촉감 이불</div>
-            <div class="col-start-1 col-end-2">04:30 ~ 05:00</div>
-            <div class="col-start-2 col-end-3">수분 보충 후 침구정리</div>
-            <div class="col-start-1 col-end-2">05:00 ~ 06:00</div>
-            <div class="col-start-2 col-end-3">산책 후 귀가</div>
-            <div class="col-start-1 col-end-2">06:00 ~ 06:40</div>
-            <div class="col-start-2 col-end-3">샤워 및 면도</div>
-            <div class="col-start-1 col-end-2">06:40 ~ 07:00</div>
-            <div class="col-start-2 col-end-3">아침 식사(저당 고단백)</div>
-            <div class="col-start-1 col-end-2">07:00 ~ 07:30</div>
-            <div class="col-start-2 col-end-3">출근 준비, 남은시간 독서</div>
-            <div class="col-start-1 col-end-2">07:30 ~ 08:30</div>
-            <div class="col-start-2 col-end-3">출근</div>
-            <div class="col-start-1 col-end-2">08:30 ~ 18:00</div>
-            <div class="col-start-2 col-end-3">업무</div>
-            <div class="col-start-1 col-end-2">18:00 ~ 19:00</div>
-            <div class="col-start-2 col-end-3">나머지 공부</div>
-            <div class="col-start-1 col-end-2">19:00 ~ 20:00</div>
-            <div class="col-start-2 col-end-3">귀가, 체력비축</div>
-            <div class="col-start-1 col-end-2">20:00 ~ 21:00</div>
-            <div class="col-start-2 col-end-3">30분 운동 및 샤워, 귀가</div>
-            <div class="col-start-1 col-end-2">21:00 ~ 22:30</div>
-            <div class="col-start-2 col-end-3">여가 생활, 독서, 유튜브</div>
+<body>
+    <main  class="grid grid-cols-6 gap-0 p-2 max-w-5xl mx-auto font-mono bg-white">
+        <div class="col-start-1 col-end-7 font-bold text-6xl text-center tracking-wide">
+            입사 지원서
         </div>
-    </div>
-    <script>
-        const button = document.getElementById('styleSwich');
-        const div = document.getElementById('planSpace');
-        const Icon = document.getElementById('modeIcon');
-
-        button.addEventListener('click',()=>{
-            if(button.classList.contains('bg-blue-500')){
-                button.classList.remove('bg-blue-500','text-white');
-                button.classList.add('bg-green-500','text-black');
-                Icon.textContent = 'bedtime';
-                div.classList.remove('bg-pink-100','text-black');
-                div.classList.add('bg-gray-600','text-white');
-            }else{
-                button.classList.remove('bg-green-500','text-black');
-                button.classList.add('bg-blue-500','text-white');
-                Icon.textContent = 'wb_sunny';
-                div.classList.remove('bg-gray-600','text-white');
-                div.classList.add('bg-pink-100','text-black');
-            }});
-    </script>
+        <div class="col-start-1 col-end-2 text-xl text-center ring-1 ring-gray-400 bg-gray-200">
+            이름
+        </div>
+        <div class="col-start-2 col-end-4 text-xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-4 col-end-5 text-xl text-center ring-1 ring-gray-400 bg-gray-200">
+            전화번호
+        </div>
+        <div class="col-start-5 col-end-7 text-xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-1 col-end-2 text-xl text-center ring-1 ring-gray-400 bg-gray-200">
+            이메일
+        </div>
+        <div class="col-start-2 col-end-5 text-xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-5 col-end-7 text-xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-1 col-end-7 text-xl text-center">-</div>
+        <div class="col-start-1 col-end-7 text-3xl ring-1 ring-gray-400 bg-gray-200">
+            - 자기소개서
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl ring-1 ring-gray-400">
+            <p class="py-1">
+                1. 업무 효율 개선 및 자동화 경험<br>
+                저는 업무 중 비효율적인 부분을 그냥 지나치지 않고 개선하려는 노력을 꾸준히 해왔습니다. 팀원들의 불편함을 해소하기 위해 프로그래밍 언어를 독학하여 업무 자동화 및 서비스 배포를 직접 진행하기도 했습니다. 이러한 경험을 통해 문제 해결 능력과 효율적인 업무 방식에 대한 중요성을 체감했습니다.
+            </p>
+            <p class="py-1">
+                2. 투자 경험<br>
+                투자를 기업의 성장 가능성과 적정 가치를 판단하는 과정이라고 생각합니다. 또한, 투자는 미래의 불확실성을 줄이고 안정적인 미래를 준비하는 중요한 수단이라고 믿습니다. 개인적으로 ISA 계좌와 개인연금 계좌를 통해 국내 주식에 투자하며, 특히 개인연금은 안정성과 꾸준한 수익성에 중점을 두고 있습니다. 또한, 미국 주식 투자도 병행하며 경기 방어주와 배당주 위주로 투자하고 있습니다.
+            </P>
+            <p class="py-1">
+                3. 개인연금 투자와 AI 기술의 결합에 대한 기대<br>
+                개인연금 투자와 AI 기술의 결합은 은퇴 후 안정적인 삶을 위한 최적의 솔루션을 제공할 수 있다고 확신합니다. AI 기반의 맞춤형 투자 포트폴리오 관리를 통해 개인 투자자들이 더욱 편리하고 효율적으로 노후를 준비할 수 있도록 기여하고 싶습니다.
+            </p>
+        </div>
+        <div class="col-start-1 col-end-7 text-xl text-center">-</div>
+        <div class="col-start-1 col-end-7 text-3xl ring-1 ring-gray-400 bg-gray-200">
+            - 교육이력
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl ring-1 ring-gray-400">
+            <p class="py-1">
+                ---
+            </p>
+            <P class="py-1">
+                ---
+            </P>
+            <P class="py-1">
+                ---
+            </P>
+            <P class="py-1">
+                ---
+            </P>
+        </div>
+        <div class="col-start-1 col-end-7 text-xl text-center">-</div>
+        <div class="col-start-1 col-end-7 text-3xl ring-1 ring-gray-400 bg-gray-200">
+            - 경력이력
+        </div>
+        <div class="col-start-1 col-end-2 text-1xl text-center ring-1 ring-gray-400 bg-gray-200">
+            경력
+        </div>
+        <div class="col-start-2 col-end-3 text-1xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-3 col-end-4 text-1xl text-center ring-1 ring-gray-400 bg-gray-200">
+            입사날짜
+        </div>
+        <div class="col-start-4 col-end-5 text-1xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-5 col-end-6 text-1xl text-center ring-1 ring-gray-400 bg-gray-200">
+            퇴사날짜
+        </div>
+        <div class="col-start-6 col-end-7 text-1xl text-center ring-1 ring-gray-400">
+            --
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl text-center ring-1 ring-gray-400">
+            주요 프로젝트
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl ring-1 ring-gray-400">
+            [Monitoring Support Systems]<br>
+            결제 시스템 관제 및 테스터 업무 수행중 근무자간 역량 및 정보의 불균형 발생<br>
+            <li class="p-2">문제
+                <ul>신규 이슈에 대한 인지 실패</ul>
+                <ul>매뉴얼 이해 부족</ul>
+                <ul>전파 지연 및 누락 발생</ul>
+            </li>
+            <li class="p-2">해결 방안
+                <ul>신규 이슈 리마인드</ul>
+                <ul>매뉴얼 해석본</ul>
+                <ul>실시간 이슈 업데이트</ul>
+            </li>
+            1. selenium / beautifulSoup 웹브라우저 실시간 이벤트 수집<br>
+            2. Pandas 데이터 정제 및 json파일 저장(DB구축)<br>
+            3. Fast API APIserver 구축 및 json파일 핸들링<br>
+            4. streamlit 웹서버 구축 및 배포<br>
+            5. tailwindcss와 HTMX를 통한 사용성 강화
+        </div>
+        <div class="col-start-1 col-end-7 text-xl text-center">-</div>
+        <div class="col-start-1 col-end-7 text-3xl ring-1 ring-gray-400 bg-gray-200">
+            - 레퍼런스
+        </div>
+        <div class="col-start-1 col-end-2 font-bold text-1xl text-center ring-1 ring-gray-400 bg-gray-200">
+            기술역량
+        </div>
+        <div class="flex col-start-2 col-end-7 text-1xl">
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                git
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                github
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                python
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                Fast API
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                streamlit
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                Pandas
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                HTML
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                HTMX
+            </div>
+            <div class="flex-1 rounded-full text-center bg-green-200">
+                tailwindcss
+            </div>
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl ring-1 ring-gray-400">
+            github ULR : <a href="https://github.com/sq1533">Github 개발 히스토리</a>
+        </div>
+        <div class="col-start-1 col-end-7 text-1xl ring-1 ring-gray-400">
+            포트폴리오 ULR : <a href="https://samplepageapp-sql-htmx-hkgouajdacilynroj2hd5r.streamlit.app/">streamlit 포트폴리오 바로가기</a>
+        </div>
+    </main>
 </body>
 </html>
